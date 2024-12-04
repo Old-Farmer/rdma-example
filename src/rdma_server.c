@@ -314,7 +314,7 @@ static int send_server_metadata_to_client()
 	*/
        server_metadata_attr.address = (uint64_t) server_buffer_mr->addr;
        server_metadata_attr.length = (uint32_t) server_buffer_mr->length;
-       server_metadata_attr.stag.local_stag = (uint32_t) server_buffer_mr->lkey;
+       server_metadata_attr.stag.remote_stag = (uint32_t) server_buffer_mr->rkey;
        server_metadata_mr = rdma_buffer_register(pd /* which protection domain*/, 
 		       &server_metadata_attr /* which memory to register */, 
 		       sizeof(server_metadata_attr) /* what is the size of memory */,
